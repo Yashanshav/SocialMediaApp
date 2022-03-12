@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.socialmediaapp.daos.UserDao
+import com.example.socialmediaapp.models.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -50,8 +52,13 @@ class SignInActivity : AppCompatActivity() {
         signInButton.setOnClickListener {
             signIn()
         }
+    }
 
-
+    // lifecycle method called after onCreate() and it check if the user if already signed in or not.
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
     }
 
 
@@ -111,6 +118,11 @@ class SignInActivity : AppCompatActivity() {
     // Updating UI after authenciation
     private fun updateUI(firebaseUser: FirebaseUser?) {
         if(firebaseUser != null) {
+
+            val user = User(firebaseUser.uid, firebaseUser.displayName, firebaseUser.photoUrl.toString())
+            val usersDao = UserDao()
+            usersDao.addUser(user)
+
             val mainActivityIntent = Intent(this, MainActivity :: class.java)
             startActivity(mainActivityIntent)
             finish()
