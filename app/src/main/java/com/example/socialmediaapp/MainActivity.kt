@@ -1,16 +1,23 @@
 package com.example.socialmediaapp
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.socialmediaapp.R
 import com.example.socialmediaapp.daos.PostDao
 import com.example.socialmediaapp.models.Post
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
+
 
 class MainActivity : AppCompatActivity(), IPostAdapter {
 
@@ -27,6 +34,9 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
             startActivity(intent)
         }
         setUpRecyclerView()
+
+
+
     }
 
     private fun setUpRecyclerView() {
@@ -60,5 +70,42 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
 
     override fun onLikeClicked(postId: String) {
         postDao.updateLikes(postId)
+    }
+
+    // create an action bar button
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // handle button activities
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.getItemId()
+        if (id == R.id.signOut) {
+
+            val builder = AlertDialog.Builder(this)
+
+            builder.setMessage(R.string.logOut)
+                .setNegativeButton(
+                    R.string.yes,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        FirebaseAuth.getInstance().signOut()
+                        val intent = Intent(this, SignInActivity::class.java)
+                        startActivity(intent)
+                    }
+                )
+                .setPositiveButton(
+                            R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        // User cancelled the dialog
+                        dialog.dismiss()
+                    })
+            builder.show()
+
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

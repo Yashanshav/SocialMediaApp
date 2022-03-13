@@ -7,11 +7,14 @@
         <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/activity_create_post.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/activity_sign_in.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/fragment_sign_out_diaglog.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/item_post.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/menu.xml" value="0.16" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
