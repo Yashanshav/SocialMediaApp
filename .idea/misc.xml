@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/drawable/edit_text_round_shape.xml" value="0.1945" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/activity_create_post.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/activity_sign_in.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/SocialMediaApp/app/src/main/res/layout/item_post.xml" value="0.17074275362318841" />
       </map>
     </option>
   </component>
